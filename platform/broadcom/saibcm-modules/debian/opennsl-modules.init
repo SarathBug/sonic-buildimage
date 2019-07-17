@@ -32,7 +32,7 @@ function create_devices()
 #                                 level logs
 function load_kernel_modules()
 {
-    modprobe linux-kernel-bde dmasize=32M maxpayload=128 debug=4 dma_debug=1
+    modprobe linux-kernel-bde dmasize=32M maxpayload=128 debug=4 dma_debug=1 usemsi=1
     modprobe linux-user-bde
     modprobe linux-bcm-knet use_rx_skb=1 rx_buffer_size=9238 debug=0x5020
     modprobe linux-knet-cb
