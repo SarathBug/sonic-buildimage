@@ -183,6 +183,9 @@ sudo LANG=C chroot $FILESYSTEM_ROOT systemctl enable hostcfgd.service
 sudo cp $IMAGE_CONFIGS/hostcfgd/hostcfgd $FILESYSTEM_ROOT/usr/bin/
 sudo cp $IMAGE_CONFIGS/hostcfgd/*.j2 $FILESYSTEM_ROOT_USR_SHARE_SONIC_TEMPLATES/
 
+# Copy iptables files
+sudo cp $IMAGE_CONFIGS/iptables/*.j2 $FILESYSTEM_ROOT_USR_SHARE_SONIC_TEMPLATES/
+
 # Copy the buffer configuration template
 sudo cp $BUILD_TEMPLATES/buffers_config.j2 $FILESYSTEM_ROOT_USR_SHARE_SONIC_TEMPLATES/
 

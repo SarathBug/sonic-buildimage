@@ -418,6 +418,9 @@ fi
 sudo sed -i 's/EBTABLES_LOAD_ON_START="no"/EBTABLES_LOAD_ON_START="yes"/g' ${FILESYSTEM_ROOT}/etc/default/ebtables
 sudo cp files/image_config/ebtables/ebtables.filter ${FILESYSTEM_ROOT}/etc
 
+## Setup iptables rules
+sudo cp files/image_config/iptables/iptables.sh ${FILESYSTEM_ROOT}/usr/bin
+
 ## Remove gcc and python dev pkgs
 sudo LANG=C DEBIAN_FRONTEND=noninteractive chroot $FILESYSTEM_ROOT apt-get -y remove gcc libpython2.7-dev
 

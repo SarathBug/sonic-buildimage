@@ -1,0 +1,7 @@
+{% block loopback %}
+# Iptables rules for the loopback network interface
+{% for (name, prefix) in LOOPBACK_INTERFACE|pfx_filter %}
+iptables -t mangle -A PREROUTING -p tcp --tcp-flags SYN SYN -d {{ prefix | ip }} -j TCPMSS --set-mss 1460
+iptables -t mangle -A POSTROUTING -p tcp --tcp-flags SYN SYN -s {{ prefix | ip }}  -j TCPMSS --set-mss 1460 
+{% endfor %}
+{% endblock loopback %}
